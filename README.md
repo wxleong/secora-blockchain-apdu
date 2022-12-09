@@ -1,10 +1,10 @@
 # The secora-blockchain-apdu Library
 
-A Java package to handle Infineon Secora Blockchain APDU translation layer. This is based on the project [BlockchainSecurity2Go-Android](https://github.com/Infineon/BlockchainSecurity2Go-Android).
+A Java package to handle Infineon Secora Blockchain APDU layer. This is based on the project [BlockchainSecurity2Go-Android](https://github.com/Infineon/BlockchainSecurity2Go-Android).
 
 # Library Import Guide
 
-Maven *pom.xml*:
+Maven *pom.xml* (access token is needed to access the Github Apache Maven Registry, more info [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#authenticating-to-github-packages)):
 ```
 <dependency>
   <groupId>com.github.infineon</groupId>
@@ -13,14 +13,14 @@ Maven *pom.xml*:
 </dependency>
 ```
 
-Gradle Groovy *build.gradle*:
+Gradle Groovy *build.gradle* (access token is needed to access the Github Gradle Registry, more info [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#authenticating-with-a-personal-access-token)):
 ```
 dependencies {
     implementation 'com.github.infineon:secora-blockchain-apdu:x.y.z'
 }
 ```
 
-# Library User Guide in Android Application
+# Library User Guide for Android Application
 
 Wraps *IsoDep* tag into *NfcTranceiver* interface. This wrapper is used so that the `com.github.infineon` package doesn't have any Android dependencies:
 ```
