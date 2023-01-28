@@ -58,18 +58,18 @@ public class IsoTagWrapper implements NfcTranceiver {
 
 Example of readPublicKeyOrCreateIfNotExists():
 ```
-    Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-    IsoDep isoDep = IsoDep.get(tag); // ISO 14443-4 Type A & B
-    String pubkey = com.github.infineon
-                        .NfcUtils.readPublicKeyOrCreateIfNotExists(
-                            IsoTagWrapper.of(isoDep), 1
-                        ).getPublicKeyInHexWithoutPrefix();
-    isoDep.close();
+Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+IsoDep isoDep = IsoDep.get(tag); // ISO 14443-4 Type A & B
+String pubkey = com.github.infineon
+                    .NfcUtils.readPublicKeyOrCreateIfNotExists(
+                        IsoTagWrapper.of(isoDep), 1
+                    ).getPublicKeyInHexWithoutPrefix();
+isoDep.close();
 ```
 
 # Reference
 
-- [secora-blockchain-walletconnect](https://github.com/wxleong/secora-blockchain-walletconnect)
+- Project [secora-blockchain-walletconnect](https://github.com/wxleong/secora-blockchain-walletconnect)
 
 # License
 
