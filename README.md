@@ -1,6 +1,6 @@
 # The secora-blockchain-apdu Library
 
-A Java package to handle Infineon Secora Blockchain APDU layer. This is based on the project [BlockchainSecurity2Go-Android](https://github.com/Infineon/BlockchainSecurity2Go-Android).
+A Java package to handle Infineon Secora Blockchain APDU layer. This is based on the project [BlockchainSecurity2Go-Android@085aa39](https://github.com/Infineon/BlockchainSecurity2Go-Android/tree/085aa3914235ab0e262b73323403e626f399d53f).
 
 # Library Import Guide
 
