@@ -1,14 +1,14 @@
-# The secora-blockchain-apdu Library
+# Introduction
 
-A Java package to handle Infineon Secora Blockchain APDU layer. This is based on the project [BlockchainSecurity2Go-Android@085aa39](https://github.com/Infineon/BlockchainSecurity2Go-Android/tree/085aa3914235ab0e262b73323403e626f399d53f).
+The secora-blockchain-apdu library is a Java package designed to handle the APDU commands of [Infineon's SECORA™ Blockchain](https://www.infineon.com/cms/en/product/security-smart-card-solutions/secora-security-solutions/secora-blockchain-security-solutions/) and [Blockchain Security 2Go starter kit](https://www.infineon.com/cms/en/product/evaluation-boards/blockchainstartkit/). It is based on the project [BlockchainSecurity2Go-Android@085aa39](https://github.com/Infineon/BlockchainSecurity2Go-Android/tree/085aa3914235ab0e262b73323403e626f399d53f).
 
 # Library Import Guide
 
-You may use [jitPack](https://jitpack.io/#wxleong/secora-blockchain-apdu) package repository to import this library into your project.
+You may use the [jitPack](https://jitpack.io/#wxleong/secora-blockchain-apdu) package repository to import the library into your project.
 
-# Library User Guide for Android Application
+# User Guide for Android Application
 
-Wraps *IsoDep* tag into *NfcTranceiver* interface. This wrapper is used so that the `com.github.infineon` package doesn't have any Android dependencies:
+In order to incorporate the library into an Android application, it is necessary to wrap the *IsoDep* object within the *NfcTransceiver* interface. Here is an example:
 ```
 import android.nfc.tech.IsoDep;
 import com.github.infineon.NfcTranceiver;
@@ -56,20 +56,22 @@ public class IsoTagWrapper implements NfcTranceiver {
 }
 ```
 
-Example of readPublicKeyOrCreateIfNotExists():
+Example of how to read the public key from a Secora Blockchain contactless card:
 ```
-Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-IsoDep isoDep = IsoDep.get(tag); // ISO 14443-4 Type A & B
-String pubkey = com.github.infineon
-                    .NfcUtils.readPublicKeyOrCreateIfNotExists(
-                        IsoTagWrapper.of(isoDep), 1
-                    ).getPublicKeyInHexWithoutPrefix();
-isoDep.close();
+public void readPublicKey() {
+    Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+    IsoDep isoDep = IsoDep.get(tag); // ISO 14443-4 Type A & B
+    String pubkey = com.github.infineon
+                       .NfcUtils.readPublicKeyOrCreateIfNotExists(
+                           IsoTagWrapper.of(isoDep), 1
+                       ).getPublicKeyInHexWithoutPrefix();
+    isoDep.close();
+}
 ```
 
-# Reference
+# Examples
 
-- Project [secora-blockchain-walletconnect](https://github.com/wxleong/secora-blockchain-walletconnect)
+- https://github.com/wxleong/secora-blockchain-walletconnect
 
 # License
 

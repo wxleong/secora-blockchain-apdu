@@ -7,10 +7,18 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check Out Repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v3.0.3
+        continue-on-error: true
+        with:
+          head-ref: ${{ github.ref }}
+          base-ref: b682c92003e6d6d1138afa4451fb96b572652ee3
+          fail-on-severity: low
+          allow-licenses: MIT, BSD-2-Clause, BSD-3-Clause, Apache-1.1, Apache-2.0
       - name: Build & Test
         env:
           PROJECT_NAME: ${{ github.event.repository.name }}
@@ -30,11 +38,11 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check Out Repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Download artifacts
+      - name: Download Artifacts
         uses: actions/download-artifact@v3
         with:
           name: jars
@@ -43,7 +51,7 @@ jobs:
         run: |
           sed -n `awk '/## \[[x0-9]/{c++} c==1{ print NR; exit }' CHANGELOG.md`',$p' CHANGELOG.md > .CHANGELOG.md.tmp
           sed `awk '/## \[[x0-9]/{c++} c==2{ print NR; exit }' .CHANGELOG.md.tmp`',$d' .CHANGELOG.md.tmp > ${{ github.workspace }}-CHANGELOG.txt
-      - name: Create release
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
