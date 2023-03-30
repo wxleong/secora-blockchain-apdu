@@ -1,3 +1,5 @@
+[![Github actions](https://github.com/wxleong/secora-blockchain-apdu/actions/workflows/main.yml/badge.svg)](https://github.com/wxleong/secora-blockchain-apdu/actions)
+
 # Introduction
 
 The secora-blockchain-apdu library is a Java package designed to handle the APDU commands of [Infineon's SECORA™ Blockchain](https://www.infineon.com/cms/en/product/security-smart-card-solutions/secora-security-solutions/secora-blockchain-security-solutions/) and [Blockchain Security 2Go starter kit](https://www.infineon.com/cms/en/product/evaluation-boards/blockchainstartkit/). It is based on the project [BlockchainSecurity2Go-Android@085aa39](https://github.com/Infineon/BlockchainSecurity2Go-Android/tree/085aa3914235ab0e262b73323403e626f399d53f).

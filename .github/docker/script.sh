@@ -7,5 +7,7 @@ set -exo pipefail
 
 cd $WORKSPACE_DIR
 mvn package
+mvn verify
+mvn site
 
 exit 0

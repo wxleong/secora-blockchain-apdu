@@ -26,12 +26,23 @@ jobs:
         run: |
           .github/docker/launcher.sh
         shell: bash
-      - name: Upload artifacts
+      - name: Consolidate Assets
+        run: |
+          cp target/dependency-check-report.html cve-check.html
+          cp -r target/site license-check
+      - name: Upload Jars
         uses: actions/upload-artifact@v3
         with:
           name: jars
           path: |
             target/*.jar
+      - name: Upload Software Composition Analysis Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: sca-reports
+          path: |
+            cve-check.html
+            license-check
   release:
     name: Create Release
     needs: test
@@ -42,11 +53,21 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Download Artifacts
+      - name: Download Jars
         uses: actions/download-artifact@v3
         with:
           name: jars
           path: jars-collection
+      - name: Download Software Composition Analysis Reports
+        uses: actions/download-artifact@v3
+        with:
+          name: sca-reports
+          path: reports-collection
+      - name: Consolidate Assets
+        run: |
+          sudo apt -y install zip
+          cd reports-collection
+          zip -r ../reports.zip cve-check.html license-check
       - name: Changelog Pruning
         run: |
           sed -n `awk '/## \[[x0-9]/{c++} c==1{ print NR; exit }' CHANGELOG.md`',$p' CHANGELOG.md > .CHANGELOG.md.tmp
@@ -62,3 +83,4 @@ jobs:
           files: |
             LICENSE
             jars-collection/*
+            reports.zip
