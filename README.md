@@ -6,11 +6,11 @@ The secora-blockchain-apdu library is a Java package designed to handle the APDU
 
 # Library Import Guide
 
-You may use the [jitPack](https://jitpack.io/#wxleong/secora-blockchain-apdu) package repository to import the library into your project.
+For evaluation, you may use the [JitPack](https://jitpack.io/#wxleong/secora-blockchain-apdu) package repository to import the library into your project.
 
 # User Guide for Android Application
 
-In order to incorporate the library into an Android application, it is necessary to wrap the *IsoDep* object within the *NfcTransceiver* interface. Here is an example:
+In order to incorporate the library into an Android application, it is necessary to wrap the [*IsoDep*](https://developer.android.com/reference/android/nfc/tech/IsoDep) object within the *NfcTransceiver* interface. Here is an example:
 ```
 import android.nfc.tech.IsoDep;
 import com.github.infineon.NfcTranceiver;
