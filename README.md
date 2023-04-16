@@ -2,15 +2,15 @@
 
 # Introduction
 
-The secora-blockchain-apdu library is a Java package designed to handle the APDU commands of [Infineon's SECORA™ Blockchain](https://www.infineon.com/cms/en/product/security-smart-card-solutions/secora-security-solutions/secora-blockchain-security-solutions/) and [Blockchain Security 2Go starter kit](https://www.infineon.com/cms/en/product/evaluation-boards/blockchainstartkit/). It is based on the project [BlockchainSecurity2Go-Android@085aa39](https://github.com/Infineon/BlockchainSecurity2Go-Android/tree/085aa3914235ab0e262b73323403e626f399d53f).
+The secora-blockchain-apdu library is a Java package designed to handle the APDU commands of [Infineon's SECORA™ Blockchain](https://www.infineon.com/cms/en/product/security-smart-card-solutions/secora-security-solutions/secora-blockchain-security-solutions/) and [Blockchain Security 2Go starter kit](https://www.infineon.com/cms/en/product/evaluation-boards/blockchainstartkit/). It was derived from the project [BlockchainSecurity2Go-Android@085aa39](https://github.com/Infineon/BlockchainSecurity2Go-Android/tree/085aa3914235ab0e262b73323403e626f399d53f).
 
 # Library Import Guide
 
-For evaluation, you may use the [JitPack](https://jitpack.io/#wxleong/secora-blockchain-apdu) package repository to import the library into your project.
+To evaluate the library, you can import it into your project using the [JitPack](https://jitpack.io/#wxleong/secora-blockchain-apdu) package repository.
 
 # User Guide for Android Application
 
-In order to incorporate the library into an Android application, it is necessary to wrap the [*IsoDep*](https://developer.android.com/reference/android/nfc/tech/IsoDep) object within the *NfcTransceiver* interface. Here is an example:
+To incorporate the library into an Android application, the [*IsoDep*](https://developer.android.com/reference/android/nfc/tech/IsoDep) object needs to be wrapped within the *NfcTransceiver* interface. Here's an example:
 ```
 import android.nfc.tech.IsoDep;
 import com.github.infineon.NfcTranceiver;
@@ -58,7 +58,7 @@ public class IsoTagWrapper implements NfcTranceiver {
 }
 ```
 
-Example of how to read the public key from a Secora Blockchain contactless card:
+Here's an example of how to read the public key from a SECORA™ Blockchain contactless card:
 ```
 public void readPublicKey() {
     Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
@@ -71,7 +71,7 @@ public void readPublicKey() {
 }
 ```
 
-# Examples
+# Implementation Examples
 
 - https://github.com/wxleong/secora-blockchain-walletconnect
 
